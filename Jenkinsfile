@@ -1,6 +1,6 @@
 pipeline {
 
-    agent { label 'terraform-agent' }
+    agent { label 'ARUN_VM1' }
 
     stages {
 
