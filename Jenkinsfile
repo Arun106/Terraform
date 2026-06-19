@@ -11,7 +11,7 @@ pipeline {
                 --container-name applicationlogs \
                 --name application.log \
                 --file application.log \
-                --auth-mode login
+                --auth-mode login \
                 --overwrite
                 '''
             }
