@@ -12,6 +12,7 @@ pipeline {
                 --name application.log \
                 --file application.log \
                 --auth-mode login
+                --overwrite
                 '''
             }
         }
