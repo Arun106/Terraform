@@ -9,8 +9,8 @@ pipeline {
                 az storage blob upload \
                 --account-name arunlogstorage12345 \
                 --container-name applicationlogs \
-                --name deploy.log \
-                --file deploy.log \
+                --name application.log \
+                --file application.log \
                 --auth-mode login
                 '''
             }
