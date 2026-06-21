@@ -12,7 +12,7 @@ resource "azurerm_storage_account" "sa1" {
   account_replication_type = "LRS"
 }
 
-resource "azurerm_storage_container" "logs1 {
+resource "azurerm_storage_container" "logs1" {
   name                  = "applicationlogs"
   storage_account_id    = azurerm_storage_account.sa.id
 
