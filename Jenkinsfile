@@ -1,6 +1,6 @@
 pipeline {
 
-    agent { label 'ARUN_VM1' }
+    agent { label 'VM1ARUN' }
 
     stages {
         stage('Upload Log') {
