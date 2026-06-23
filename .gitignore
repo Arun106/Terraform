@@ -1,0 +1,22 @@
+.terraform/
+
+# Terraform state - Terraform Cloud stores this remotely
+*.tfstate
+*.tfstate.*
+terraform.tfstate
+terraform.tfstate.backup
+
+# Plans and crash logs
+*.tfplan
+*.log
+
+# Local variable files may contain secrets or environment values
+*.tfvars
+*.tfvars.json
+!terraform.tfvars.example
+
+# Override files are usually local-only
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
