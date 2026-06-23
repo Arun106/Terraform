@@ -1,0 +1,4 @@
+
+[trainingserver]
+gousia-vm2 ansible_host=10.1.0.4 ansible_user=azureuser ansible_private_key_file=gousia.pem
+

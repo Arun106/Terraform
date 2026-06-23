@@ -1,0 +1,61 @@
+- name: convert adhoc command into playbook
+  hosts: trainingserver
+  become: true
+  gather_facts: yes
+  
+  vars:
+    java_version: openjdk-21-jdk
+    java_version: openjdk-17-jdk
+    dest: /tmp/tomcat.tar.gz
+    tomcat_dir: /opt/tomcat
+    tomcat_url: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.80/bin/apache-tomcat-9.0.80.tar.gz
+    war_url: https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
+  
+  vars_files:
+    - /home/azureuser/var_file.yml
+
+  tasks:
+
+    - name: download tomcat
+      get_url:
+        url: "{{ tomcat_url }}"        
+        dest: "{{ dest }}"
+
+    - name: create tomcat directory
+      file:
+        path: "{{ tomcat_dir }}"
+        state: directory
+
+    - name: Extract Tomcat
+      unarchive:
+        src: "{{ dest }}"
+        dest: "{{ tomcat_dir }}"
+        remote_src: yes
+
+
+    - name: Download Amazon WAR File
+      get_url:
+        url: "{{ war_url }}"
+        dest: "{{ tomcat_dir }}/apache-tomcat-9.0.80/webapps/sample.war"
+
+   
+    - name:
+      file:
+        path: /opt/tomcat/apache-tomcat-9.0.80/bin/startup.sh
+        mode: '0755'
+
+
+    - name: Start Tomcat
+      shell:  /opt/tomcat/apache-tomcat-9.0.80/bin/startup.sh
+
+    - name: Check Tomcat Process
+      shell: ps -ef | grep tomcat
+      register: tomcat_status
+
+    - name: Get Tomcat logs
+      shell: tail -20 /opt/tomcat/apache-tomcat-9.0.80/logs/catalina.out
+      register: logs
+   
+    - name: Show logs
+      debug:
+         var: logs.stdout_lines
