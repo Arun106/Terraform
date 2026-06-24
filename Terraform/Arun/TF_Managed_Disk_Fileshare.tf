@@ -1,5 +1,5 @@
 # Resource Group
-resource "azurerm_resource_group" "managed_disk_fileshare_rg" {
+resource "azurerm_resource_group" "rg3" {
   name     = "arun-rg"
   location = "Central India"
 }
@@ -7,8 +7,8 @@ resource "azurerm_resource_group" "managed_disk_fileshare_rg" {
 # Managed Disk
 resource "azurerm_managed_disk" "disk" {
   name                 = "arun-disk"
-  location             = azurerm_resource_group.managed_disk_fileshare_rg.location
-  resource_group_name  = azurerm_resource_group.managed_disk_fileshare_rg.name
+  location             = azurerm_resource_group.rg3.location
+  resource_group_name  = azurerm_resource_group.rg3.name
   storage_account_type = "Standard_LRS"
   create_option        = "Empty"
   disk_size_gb         = 32
@@ -17,8 +17,8 @@ resource "azurerm_managed_disk" "disk" {
 # Storage Account
 resource "azurerm_storage_account" "sa" {
   name                     = "arunstorage123456"
-  resource_group_name      = azurerm_resource_group.managed_disk_fileshare_rg.name
-  location                 = azurerm_resource_group.managed_disk_fileshare_rg.location
+  resource_group_name      = azurerm_resource_group.rg3.name
+  location                 = azurerm_resource_group.rg3.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
