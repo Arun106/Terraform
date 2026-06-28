@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Compiled class file
 *.class
 
@@ -35,3 +36,11 @@ crash.log
 
 # Optional
 .terraform.lock.hcl
+=======
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+crash.log
+>>>>>>> origin/main
