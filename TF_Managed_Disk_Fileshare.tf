@@ -1,6 +1,6 @@
 # Resource Group
 resource "azurerm_resource_group" "rg3" {
-  name     = "arun-rg"
+  name     = "arun-rg1"
   location = "Central India"
 }
 
