@@ -1,3 +1,8 @@
+import {
+  to = azurerm_resource_group.rg3
+  id = "/subscriptions/e377d444-6055-48ff-b11c-588edaf7da68/resourceGroups/arun-rg"
+}
+
 # Resource Group
 resource "azurerm_resource_group" "rg3" {
   name     = "arun-rg"
