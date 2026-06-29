@@ -8,7 +8,10 @@ resource "azurerm_resource_group" "ARUN-RG1" {
   name     = "arun-rg"
   location = "Central India"
 }
-
+resource "azurerm_resource_group" "rg3" {
+  name     = "ARUN-RG1"
+  location = "East US"
+}
 # Managed Disk
 resource "azurerm_managed_disk" "disk" {
   name                 = "arun-disk"
